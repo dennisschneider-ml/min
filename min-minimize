@@ -1,0 +1,19 @@
+#!/bin/sh
+
+function minimize_window() {
+    window_id=$1
+    xdotool windowunmap $window_id
+}
+
+function log_window() {
+    window_id=$1
+    window_name=$(xdotool getwindowname $window_id)
+    workspace_id=$(xdotool get_desktop)
+    
+    min-client --socket /tmp/min.so --workspace_id $workspace_id --window_id $window_id --title "$window_name" --action minimize
+}
+
+active_window_id=$(xdotool getactivewindow)
+minimize_window $active_window_id
+log_window $active_window_id
+

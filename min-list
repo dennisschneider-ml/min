@@ -1,0 +1,5 @@
+#!/bin/sh
+
+current_workspace=$(xdotool get_desktop)
+minimized_programs=$(min-client --socket /tmp/min.so --workspace_id $current_workspace --action list)
+echo "$minimized_programs"
