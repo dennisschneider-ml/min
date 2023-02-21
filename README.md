@@ -50,6 +50,6 @@ A convenient integration into the spectrwm bar would look something like this, o
 ```shell
 num_minimized=$(min-list | sed '/^$/D' | wc -l)
 if [[ $num_minimized -gt 0 ]]; then
-    echo "󰻀 $num_minimized"
+    echo " $num_minimized"
 fi
 ```
