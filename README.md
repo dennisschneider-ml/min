@@ -22,8 +22,9 @@ sed -i 's/rofi -dmenu/dmenu/' min-recover
 ```shell
 make install
 ```
-Also, make sure to start the daemon on startup, e.g. by adding `min` to your xinitrc.
-Finally, make sure to look at the Usage section for correct use in your Window Manager.
+Also, make sure to start the daemon on startup, e.g. by adding `min &` to your xinitrc.
+The `&` is important in this case! \
+Finally, make sure to look at the Usage section for correct usage in your Window Manager.
 
 ## Uninstallation
 ```shell
