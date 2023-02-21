@@ -7,7 +7,7 @@ minimized_programs=$(min-client --socket /tmp/min.so --workspace_id $current_wor
 # Select:
 selection=$(echo "$minimized_programs" | cut -f1,2,4 | rofi -dmenu -i)
 chosen_line=$(echo $selection | cut -f1)
-chosen_id=$(echo "$minimized_programs" | awk -F' ' -v line_no=$chosen_line '$1==line_no{print $(NF-2)}')
+chosen_id=$(echo "$minimized_programs" | awk -F' ' -v line_no=$chosen_line 'line_no~$1{print $(NF-2)}')
 
 # Recover:
 xdotool windowmap "$chosen_id"
