@@ -17,20 +17,20 @@ def build_message(action, workspace_id, window_id, window_title):
 
 def run(socket_address, action, workspace_id, window_id, title):
     # Create a UDS socket
-    sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
 
-    # Connect the socket to the port where the server is listening
-    try:
-        sock.connect(socket_address)
-    except socket.error as e:
-        raise e
+        # Connect the socket to the port where the server is listening
+        try:
+            sock.connect(socket_address)
+        except socket.error as e:
+            raise e
 
-    # Send message and print response to stdout.
-    message = build_message(action, workspace_id, window_id, title)
-    sock.sendall(message.encode("utf-8"))
-    data = sock.recv(1024)
-    print(data.decode('utf-8'))
-    sock.close()
+        # Send message and print response to stdout.
+        message = build_message(action, workspace_id, window_id, title)
+        sock.sendall(message.encode("utf-8"))
+        data = sock.recv(1024)
+        # Print received data to stdout.
+        print(data.decode("utf-8"))
 
 
 if __name__ == "__main__":
