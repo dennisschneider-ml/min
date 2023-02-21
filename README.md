@@ -20,7 +20,7 @@ This is due to the titles of the windows can get quite lengthy and are more suit
 
 ## Installation
 ```shell
-make install
+sudo make install
 ```
 Also, make sure to start the daemon on startup, e.g. by adding `min &` to your xinitrc.
 The `&` is important in this case! \
@@ -28,7 +28,7 @@ Finally, make sure to look at the Usage section for correct usage in your Window
 
 ## Uninstallation
 ```shell
-make uninstall
+sudo make uninstall
 ```
 
 ## Usage
