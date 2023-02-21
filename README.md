@@ -4,8 +4,8 @@ Min is a Minimization Manager for any X Window Manager supporting EWMH.
 It offers a daemon written in Python, which can be used externally to minimize and recover windows.
 
 ## Motivation
-Well, spectrwm does not support minimizing windows, and I often come across situations where I want don't want a window cluttering up my screen space in a tiling Window Manager. \ 
-As a dirty hack rather than a solution, I ended up moving those applications (e.g. a terminal window running a server) to a workspace I am currently not using, but since X offers the minimization capability, this solution is far more elegant.
+Well, spectrwm does not support minimizing windows, and I often come across situations where I don't want a window to clutter up my screen space in the tiling Window Manager. \ 
+As a dirty hack rather than a solution, I ended up moving those applications (e.g. a terminal window running a server) to a workspace I am currently not using, but since X offers the minimization capability, Min elegantly adds this feature in a Window Manager agnostic way.
 
 ## Requirements
 If some of the requirements are not met, you are notified upon installing Min.
