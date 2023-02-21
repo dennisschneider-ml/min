@@ -29,14 +29,9 @@ class Network(broker.EventHandler):
 
     def _run(self):
         while True:
-            print("waiting ...")
             self.connection, _ = self.socket.accept()
-            print("connected!")
             data = self.__receive_message(self.connection)
-            print("received:", data)
             event = parsing.parse(data)
-            print(event)
-
             broker.broadcast(event)
 
     def __receive_message(self, connection):
@@ -47,7 +42,6 @@ class Network(broker.EventHandler):
         self.connection.sendall(data.encode('utf-8'))
     
     def close_connection(self):
-        print("closed")
         self.connection.close()
 
     def receive(self, event):

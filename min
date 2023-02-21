@@ -1,3 +1,6 @@
 #!/bin/sh
 
-python $HOME/.local/share/min/run.py
+# Exit when an instance of Min is already running.
+pidof -o %PPID -x $0 >/dev/null && echo 'Error! An instance of Min is already running!' && exit 1
+
+python /usr/local/share/min/run.py > /dev/null
