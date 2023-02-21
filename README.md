@@ -8,7 +8,7 @@ Well, spectrwm does not support minimizing windows, and I often come across situ
 As a dirty hack rather than a solution, I ended up moving those applications (e.g. a terminal window running a server) to a workspace I am currently not using, but since X offers the minimization capability, this solution is far more elegant.
 
 ## Requirements
-- rofi
+- rofi (exchangeable for dwm, see below)
 - xdotool
 - python package: daemon
 
