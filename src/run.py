@@ -6,6 +6,7 @@ import daemon
 import lockfile
 import os
 
+
 with daemon.DaemonContext(
         working_directory=os.path.dirname(os.path.realpath(__file__)),
         pidfile=lockfile.FileLock("/tmp/min.pid")

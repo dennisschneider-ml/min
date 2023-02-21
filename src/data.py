@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from enum import Enum
 from datetime import datetime
+
 
 @dataclass
 class Application:

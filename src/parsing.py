@@ -1,7 +1,9 @@
 from events import NetMinimizeEvent, NetRecoverEvent, NetListEvent
 from data import Application
+
 import json
 from datetime import datetime
+
 
 def parse(data):
     parsed_data = json.loads(data)

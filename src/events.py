@@ -1,5 +1,6 @@
-from dataclasses import dataclass
 from data import Application
+
+from dataclasses import dataclass
 
 
 @dataclass

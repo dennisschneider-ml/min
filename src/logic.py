@@ -1,6 +1,6 @@
-from data import Application
 from events import LogicListEvent, NetListEvent, NetMinimizeEvent, NetRecoverEvent, SendAckEvent
 import broker
+
 
 class Logic:
 

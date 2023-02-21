@@ -1,11 +1,11 @@
-import os
-import json
-import socket
 import broker
 import events
 import parsing
-import data
 from logic import Logic
+
+import os
+import socket
+
 
 class Network(broker.EventHandler):
 
