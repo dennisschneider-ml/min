@@ -10,7 +10,6 @@ As a dirty hack rather than a solution, I ended up moving those applications (e.
 ## Requirements
 - rofi (exchangeable for dwm, see below)
 - xdotool
-- python package: daemon
 
 ### Using dwm instead of rofi
 Run the following command before installing using `make install`:
