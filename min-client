@@ -1,0 +1,46 @@
+#!/bin/python
+
+import socket
+from argparse import ArgumentParser
+import json
+
+    
+def build_message(action, workspace_id, window_id, window_title):
+    data = dict(
+        action=action,
+        workspace_id=workspace_id,
+        title=window_title,
+        window_id=window_id,
+    )
+    data = {key: value for key, value in data.items() if value is not None}
+    return json.dumps(data)
+
+def run(socket_address, action, workspace_id, window_id, title):
+    # Create a UDS socket
+    sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+
+    # Connect the socket to the port where the server is listening
+    try:
+        sock.connect(socket_address)
+    except socket.error as e:
+        raise e
+
+    # Send message and print response to stdout.
+    message = build_message(action, workspace_id, window_id, title)
+    sock.sendall(message.encode("utf-8"))
+    data = sock.recv(1024)
+    print(data.decode('utf-8'))
+    sock.close()
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument('--socket', dest='socket_address', type=str)
+    parser.add_argument('--workspace_id', type=int)
+    parser.add_argument('--window_id', type=int)
+    parser.add_argument('--title', type=str)
+    parser.add_argument('--action', type=str)
+
+    args = parser.parse_args()
+    run(args.socket_address, args.action, args.workspace_id, args.window_id, args.title)
+
