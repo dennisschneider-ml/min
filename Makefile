@@ -7,11 +7,11 @@ DATA_FILES=$(subst src/,$(DATA_DIR),$(wildcard src/*))
 BIN_FILES=$(addprefix $(BIN_DIR)/,$(wildcard min*))
 REQ_XDOTOOLS := $(if $(shell which xdotool),,$(error "xdotool is not installed!"))
 REQ_DMENU := \
-			 $(if $(shell which dmenu),\
-			 	$(info dmenu installation detected. Configuring for use with dmenu ...);\
-			 	$(shell sed -i 's/rofi -dmenu/dmenu/' min-recover),\
-			 	$(if $(shell which rofi),\
-			 		$(info rofi installation detected. Configuring for use with rofi ...),\
+			 $(if $(shell which rofi),\
+			 	$(info rofi installation detected. Configuring for use with rofi ...),\
+			 	$(if $(shell which dmenu),\
+					$(info dmenu installation detected. Configuring for use with dmenu ...);\
+					$(shell sed -i 's/rofi -dmenu/dmenu/' min-recover),\
 			 		$(error "Please install either rofi or dmenu!")))
 
 

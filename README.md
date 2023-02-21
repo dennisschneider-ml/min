@@ -8,14 +8,15 @@ Well, spectrwm does not support minimizing windows, and I often come across situ
 As a dirty hack rather than a solution, I ended up moving those applications (e.g. a terminal window running a server) to a workspace I am currently not using, but since X offers the minimization capability, this solution is far more elegant.
 
 ## Requirements
-- rofi (exchangeable for dwm, see below)
+If some of the requirements are not met, you are notified upon installing Min.
+
+- rofi or dwm (rofi is preferred for visualization reasons)
 - xdotool
 
-### Using dwm instead of rofi
-Run the following command before installing using `make install`:
-```shell
-sed -i 's/rofi -dmenu/dmenu/' min-recover
-```
+### Using dwm or rofi?
+When installing Min, the two programs are automatically detected.
+By default, Min uses rofi.
+This is due to the titles of the windows can get quite lengthy and are more suitably visualized in rofi.
 
 ## Installation
 ```shell
