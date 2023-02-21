@@ -2,13 +2,12 @@
 
 # List:
 current_workspace=$(xdotool get_desktop)
-minimized_programs=$(min-client --socket /tmp/min.so --workspace_id $current_workspace --action list)
+minimized_programs=$(min-client --socket /tmp/min.so --workspace_id $current_workspace --action list | nl -w1)
 
 # Select:
-chosen_title_time=$(echo "$minimized_programs" | cut -f1,3 | rofi -dmenu -i)
-chosen_time=$(echo $chosen_title_time | rev | cut -d' ' -f-2 | rev)
-chosen_title=$(echo $chosen_title_time | rev | cut -d' ' -f3- | rev)
-chosen_id=$(echo "$minimized_programs" | grep "$chosen_time" | cut -f2)
+selection=$(echo "$minimized_programs" | cut -f1,2,4 | rofi -dmenu -i)
+chosen_line=$(echo $selection | cut -f1)
+chosen_id=$(echo "$minimized_programs" | awk -F' ' -v line_no=$chosen_line '$1==line_no{print $(NF-2)}')
 
 # Recover:
 xdotool windowmap "$chosen_id"

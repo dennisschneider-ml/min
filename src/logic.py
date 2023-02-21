@@ -25,5 +25,4 @@ class Logic:
         old_hidden_apps = self.hidden_applications.get(workspace_id, [])
         hidden_apps = [hidden_app for hidden_app in old_hidden_apps if window_id != hidden_app.window_id]
         self.hidden_applications[workspace_id] = hidden_apps
-
     
