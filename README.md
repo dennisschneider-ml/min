@@ -33,7 +33,7 @@ In order to visualize currently minimized windows in e.g. a menubar, the followi
 ```
 min-list
 ```
-A convenient integration into the spectrwm bar would look something like this, only taking up space when any windows are minimized.
+A convenient integration into the spectrwm bar would look something like this, only taking up space when there are any minimized windows in the current workspace.
 ```shell
 num_minimized=$(min-list | sed '/^$/D' | wc -l)
 if [[ $num_minimized != 0 ]]; then
