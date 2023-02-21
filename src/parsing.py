@@ -25,7 +25,7 @@ def minimize(message):
 
 def recover(message):
     return NetRecoverEvent(
-        title=message["title"],
+        id=message["window_id"],
         workspace=message.get("workspace_id", None)
     )
 

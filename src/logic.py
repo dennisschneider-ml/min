@@ -12,7 +12,7 @@ class Logic:
             self.add(event.workspace, event.app)
             broker.broadcast(SendAckEvent())
         elif isinstance(event, NetRecoverEvent):
-            self.remove(event.workspace, event.title)
+            self.remove(event.workspace, event.id)
             broker.broadcast(SendAckEvent())
         elif isinstance(event, NetListEvent):
             broker.broadcast(LogicListEvent(self.hidden_applications.get(event.workspace, [])))
@@ -21,9 +21,9 @@ class Logic:
         old_hidden_apps = self.hidden_applications.get(workspace_id, [])
         self.hidden_applications[workspace_id] = old_hidden_apps+[app]
 
-    def remove(self, workspace_id, title):
+    def remove(self, workspace_id, window_id):
         old_hidden_apps = self.hidden_applications.get(workspace_id, [])
-        hidden_apps = [hidden_app for hidden_app in old_hidden_apps if title != hidden_app.window_title]
+        hidden_apps = [hidden_app for hidden_app in old_hidden_apps if window_id != hidden_app.window_id]
         self.hidden_applications[workspace_id] = hidden_apps
 
     

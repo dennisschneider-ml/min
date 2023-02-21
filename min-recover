@@ -9,11 +9,8 @@ chosen_title_time=$(echo "$minimized_programs" | cut -f1,3 | rofi -dmenu -i)
 chosen_time=$(echo $chosen_title_time | rev | cut -d' ' -f-2 | rev)
 chosen_title=$(echo $chosen_title_time | rev | cut -d' ' -f3- | rev)
 chosen_id=$(echo "$minimized_programs" | grep "$chosen_time" | cut -f2)
-echo $chosen_id
-echo $chosen_title
-echo $chosen_time
 
 # Recover:
 xdotool windowmap "$chosen_id"
-min-client --socket /tmp/min.so --workspace_id $current_workspace --title "$chosen_title" --action recover
+min-client --socket /tmp/min.so --workspace_id $current_workspace --window_id $chosen_id --action recover
 

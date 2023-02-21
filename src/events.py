@@ -10,7 +10,7 @@ class NetMinimizeEvent:
 
 @dataclass
 class NetRecoverEvent:
-    title: str
+    id: int
     workspace: int
 
 @dataclass
