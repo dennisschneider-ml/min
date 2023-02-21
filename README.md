@@ -5,6 +5,9 @@ It offers a daemon written in Python, which can be triggered to minimize and rec
 
 ## Requirements
 - rofi
+- xdotool
+- python package: daemon
+
 ## Installation
 ```
 make install
